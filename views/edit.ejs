@@ -6,5 +6,33 @@
   </head>
   <body>
     <h1>Edit Page</h1>
+
+    <form class="new-form" action="/homefit/<%= workout.id %>?_method=PUT" method="POST">
+      <fieldset>
+        <legend>Edit Workout</legend>
+        <!-- --- workout title --- -->
+        <label for="title">Workout Title</label>
+        <input id="title" type="text" name="title" placeholder="<%= workout.title %>"/>
+        <!-- --- workout duration --- -->
+        <label for="duration">Workout Duration</label>
+        <input id="duration" type="text" name="duration" placeholder="<%= workout.duration %>"/>
+        <!-- --- equipment needed --- -->
+        <label for="equipmentNeeded">Equipment Needed?</label>
+        <input id="equipmentNeeded" type="checkbox" name="equipmentNeeded"/>
+        <!-- --- warmup exercise --- -->
+        <label for="warmpup">Is there a warmup exercise?</label>
+        <input id="warmup" type="checkbox" name="warmpup"/>
+        <!-- --- cooldown exercise --- -->
+        <label for="cooldown">Is there a cooldown exercise?</label>
+        <input id="cooldown" type="checkbox" name="cooldown"/>
+        <!-- --- workout description --- -->
+        <label for="description">Workout Description</label>
+        <textarea id="description" name="description"></textarea>
+        <!-- --- workout video --- -->
+        <label for="video">Embedded file link</label>
+        <input id="video" type="text" name="video" value="<%= workout.video %>"/>
+      </fieldset>
+      <input type="submit" value="Edit Workout">
+    </form>
   </body>
 </html>

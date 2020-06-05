@@ -107,14 +107,53 @@ app.post('/homefit/index', (req, res) => {
   })
 })
 
-
-
 ///////////////////////////
 /////// Edit Route ////////
 ///////////////////////////
 app.get('/homefit/:id/edit', (req, res) => {
-  res.render('edit.ejs')
+  Workout.findById(req.params.id, (error, foundWorkout) => {
+    res.render('edit.ejs',
+      {
+        workout: foundWorkout
+      }
+    )
+  })
 })
+
+app.put('/homefit/:id', (req, res) => {
+  if(req.body.equipmentNeeded === 'on') {
+    req.body.equipmentNeeded = true
+  } else {
+    req.body.equipmentNeeded = false
+  }
+
+  if(req.body.warmup === 'on'){
+    req.body.warmpup = true
+  } else {
+    req.body.warmpup = false
+  }
+
+  if(req.body.cooldown === 'on'){
+    req.body.cooldown = true
+  } else {
+    req.body.cooldown = false
+  }
+
+  Workout.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updateWorkout) => {
+    res.redirect('/homefit/' + req.params.id)
+  })
+})
+
+/////////////////////////////
+/////// Delete Route ////////
+/////////////////////////////
+
+app.delete('/homefit/:id', (req, res) => {
+  Workout.findByIdAndRemove(req.params.id, (error, deleteWorkout) => {
+    res.redirect('/homefit/index')
+  })
+})
+
 
 ///////////////////////////
 /////// Show Route ////////

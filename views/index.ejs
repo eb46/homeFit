@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <%- include('./partials/head.ejs') %>
   </head>
   <body>
     <h1>Workout Index Page</h1>
@@ -11,7 +10,7 @@
         <% for(let i = 0; i < workouts.length; i++) { %>
           <div class="workout-container">
             <div class="workout-title">
-              <h2><%= workouts[i].title %></h2>
+              <h2><a href="/homefit/<%= workouts[i].id %>"><%= workouts[i].title %></a></h2>
             </div>
             <div class="workout-duration">
               <h2><%= workouts[i].duration %></h2>
@@ -23,8 +22,8 @@
                 <h4>Equipment is not needed for this workout</h4>
               <% } %>
             </div>
-            <div class="workout-video">
-              <iframe src="<%= workouts[i].video %>" width="420" height="350"></iframe>
+            <div class="index-video">
+              <iframe src="<%= workouts[i].video %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
         <% } %>
