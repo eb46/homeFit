@@ -8,7 +8,6 @@ require('dotenv').config()
 
 // Seed data
 const workoutSeed = require('./models/seed.js')
-const Workout = require('./models/workouts.js')
 
 // Port
 const PORT = process.env.PORT || 3333
@@ -35,138 +34,10 @@ app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
 
 // Controllers
+const workoutController = require('./controllers/workout_controller.js')
+app.use('/homefit', workoutController)
 
 
-// Routes
-// app.get('/', (req, res) => {
-//   res.send('Hello World')
-// })
-
-////////////////////////////
-////// Welcome Route ///////
-////////////////////////////
-app.get('/homefit', (req, res) => {
-  res.render('welcome.ejs')
-})
-
-//////////////////////////
-////// Index Route ///////
-//////////////////////////
-app.get('/homefit/index', (req, res) => {
-  Workout.find({}, (error, allWorkouts) => {
-    res.render('index.ejs',
-      {
-        workouts: allWorkouts
-      }
-    )
-  })
-})
-
-///////////////////////////
-/////// Seed Route ////////
-///////////////////////////
-app.get('/homefit/seed', (req, res) => {
-  Workout.create(workoutSeed, (error, data) => {
-    if (error) console.log(error.message)
-    console.log("added provided workout data")
-  })
-  res.redirect('/homefit')
-})
-
-////////////////////////
-////// New Route ///////
-////////////////////////
-app.get('/homefit/new', (req, res) => {
-  res.render('new.ejs')
-})
-
-///////////////////////////
-////// Create Route ///////
-///////////////////////////
-app.post('/homefit/index', (req, res) => {
-  if(req.body.equipmentNeeded === 'on') {
-    req.body.equipmentNeeded = true
-  } else {
-    req.body.equipmentNeeded = false
-  }
-
-  if(req.body.warmup === 'on'){
-    req.body.warmpup = true
-  } else {
-    req.body.warmpup = false
-  }
-
-  if(req.body.cooldown === 'on'){
-    req.body.cooldown = true
-  } else {
-    req.body.cooldown = false
-  }
-
-  Workout.create(req.body, (error, createdWorkout) => {
-    res.redirect('/homefit/index')
-  })
-})
-
-///////////////////////////
-/////// Edit Route ////////
-///////////////////////////
-app.get('/homefit/:id/edit', (req, res) => {
-  Workout.findById(req.params.id, (error, foundWorkout) => {
-    res.render('edit.ejs',
-      {
-        workout: foundWorkout
-      }
-    )
-  })
-})
-
-app.put('/homefit/:id', (req, res) => {
-  if(req.body.equipmentNeeded === 'on') {
-    req.body.equipmentNeeded = true
-  } else {
-    req.body.equipmentNeeded = false
-  }
-
-  if(req.body.warmup === 'on'){
-    req.body.warmpup = true
-  } else {
-    req.body.warmpup = false
-  }
-
-  if(req.body.cooldown === 'on'){
-    req.body.cooldown = true
-  } else {
-    req.body.cooldown = false
-  }
-
-  Workout.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updateWorkout) => {
-    res.redirect('/homefit/' + req.params.id)
-  })
-})
-
-/////////////////////////////
-/////// Delete Route ////////
-/////////////////////////////
-
-app.delete('/homefit/:id', (req, res) => {
-  Workout.findByIdAndRemove(req.params.id, (error, deleteWorkout) => {
-    res.redirect('/homefit/index')
-  })
-})
-
-
-///////////////////////////
-/////// Show Route ////////
-///////////////////////////
-app.get('/homefit/:id', (req, res) => {
-  Workout.findById(req.params.id, (error, foundWorkout) => {
-    res.render('show.ejs',
-      {
-        workout: foundWorkout
-      }
-    )
-  })
-})
 
 
 // Listener
