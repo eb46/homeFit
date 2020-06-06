@@ -5,8 +5,11 @@
     <title></title>
   </head>
   <body>
-    <h1>New Page</h1>
-
+    <header>
+      <div class="header-container">
+        <%- include('./partials/header.ejs') %>
+      </div>
+    </header>
     <form class="new-form" action="/homefit/index" method="POST">
       <fieldset>
         <legend>Enter New Workout</legend>

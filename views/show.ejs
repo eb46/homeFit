@@ -4,7 +4,7 @@
     <%- include('./partials/head.ejs') %>
   </head>
   <body>
-    <h1>Show Page</h1>
+    <%- include('./partials/header.ejs') %>
     <a href="/homefit/index">Back Home</a>
     <div class="show-container">
       <div class="show-title">
@@ -12,6 +12,13 @@
       </div>
       <div class="show-duration">
         <h3><%= workout.duration %></h3>
+      </div>
+      <div class="workout-equipment">
+        <% if(workout.equipmentNeeded === true) { %>
+          <h4>Equipment is needed for this workout</h4>
+        <% } else { %>
+          <h4>Equipment is not needed for this workout</h4>
+        <% } %>
       </div>
       <div class="show-video">
         <iframe src="<%= workout.video %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

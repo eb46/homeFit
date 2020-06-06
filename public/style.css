@@ -1,4 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+* {
+  font-family: 'Quicksand';
+}
+
 iframe {
-  width: 35em;
-  height: 20em;
+  width: 15em;
+  height: 10em;
+}
+
+body {
+  background-color: #ECD59F;
+  margin: 0;
+}
+
+header {
+  background-color: #7097A8;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 2% 3%;
+  position: fixed;
+  top: 0;
+  width: 95%;
+  background-color: #7097A8;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: #D3E7EE; */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #7097A8;
+}
+
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-weight: 600;
+}
+
+.nav-links > h4 {
+  margin: 1em;
+}
+
+.duration-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12em;
+  margin-bottom: 5em;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.workout-container {
+  margin: 1em;
+  padding-top: 5em;
+}
+
+.workout-title {
+  font-weight: bold;
+  text-align: center;
 }

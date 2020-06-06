@@ -24,6 +24,36 @@ workout.get('/index', (req, res) => {
   })
 })
 
+workout.get('/10min', (req, res) => {
+  Workout.find({duration:'10 minutes'}, (error, workout10min) => {
+    res.render('10min.ejs',
+      {
+        workouts: workout10min
+      }
+    )
+  })
+})
+
+workout.get('/20min', (req, res) => {
+  Workout.find({duration:'20 minutes'}, (error, workout20min) => {
+    res.render('20min.ejs',
+      {
+        workouts: workout20min
+      }
+    )
+  })
+})
+
+workout.get('/30min', (req, res) => {
+  Workout.find({duration:'30 minutes'}, (error, workout30min) => {
+    res.render('30min.ejs',
+      {
+        workouts: workout30min
+      }
+    )
+  })
+})
+
 ///////////////////////////
 /////// Seed Route ////////
 ///////////////////////////
@@ -82,6 +112,9 @@ workout.get('/:id/edit', (req, res) => {
   })
 })
 
+/////////////////////////////
+/////// Update Route ////////
+/////////////////////////////
 workout.put('/:id', (req, res) => {
   if(req.body.equipmentNeeded === 'on') {
     req.body.equipmentNeeded = true
@@ -102,7 +135,7 @@ workout.put('/:id', (req, res) => {
   }
 
   Workout.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updateWorkout) => {
-    res.redirect('/homefit' + req.params.id)
+    res.redirect('/homefit/' + req.params.id)
   })
 })
 

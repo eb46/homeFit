@@ -37,7 +37,8 @@ app.use(methodOverride('_method'))
 const workoutController = require('./controllers/workout_controller.js')
 app.use('/homefit', workoutController)
 
-
+const userController = require('./controllers/user_controller.js')
+app.use('/users', userController)
 
 
 // Listener
