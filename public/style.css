@@ -100,15 +100,19 @@ a:hover {
 }
 
 .index-duration-selector {
+  display: flex;
   margin: 2em;
 }
 
-.index-duration-selector > a {
+.duration-link {
   background-color: #4A707A;
-  color: white;
   margin: 1em;
   padding: 1em 2.5em;
   border-radius: 5px;
+}
+
+.duration-link > a {
+  color: white;
 }
 
 .index-duration-selector > a:hover {
