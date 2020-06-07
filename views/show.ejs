@@ -4,8 +4,11 @@
     <%- include('./partials/head.ejs') %>
   </head>
   <body>
-    <%- include('./partials/header.ejs') %>
-    <a href="/homefit/index">Back Home</a>
+    <header>
+      <nav class="main-nav">
+        <%- include('./partials/header.ejs') %>
+      </nav>
+    </header>
     <div class="show-container">
       <div class="show-title">
         <h1><%= workout.title %></h1>
@@ -20,13 +23,18 @@
           <h4>Equipment is not needed for this workout</h4>
         <% } %>
       </div>
+      <div class="workout-description">
+        <h4><%= workout.description %></h4>
+      </div>
       <div class="show-video">
         <iframe src="<%= workout.video %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
+      <div class="show-buttons">
+        <button href="/homefit/<%= workout.id %>/edit">Edit Workout</button>
+        <form class="delete-button" action="/homefit/<%= workout.id %>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete">
+        </form>
+      </div>
     </div>
-    <a href="/homefit/<%= workout.id %>/edit">Edit Workout</a>
-    <form class="delete-button" action="/homefit/<%= workout.id %>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete">
-    </form>
   </body>
 </html>

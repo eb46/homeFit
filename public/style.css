@@ -14,12 +14,12 @@ iframe {
 }
 
 body {
-  background-color: #ECD59F;
+  background-color: #DDDDDA;
   margin: 0;
 }
 
 header {
-  background-color: #7097A8;
+  background-color: #94B0B7;
 }
 
 .main-nav {
@@ -27,11 +27,34 @@ header {
   align-items: center;
   align-content: center;
   justify-content: space-between;
-  padding: 2% 3%;
   position: fixed;
   top: 0;
-  width: 95%;
-  background-color: #7097A8;
+  width: 100%;
+  background-color: #94B0B7;
+  opacity: .9;
+}
+
+.main-container {
+  margin: 5em;
+}
+
+.logo {
+  padding: 0 2em;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-weight: 600;
+  background-color: white;
+  padding: 1em;
+  margin-right: 2em;
+}
+
+.nav-links > h4 {
+  margin: 1em;
 }
 
 .index-container {
@@ -56,43 +79,91 @@ a:hover {
   color: #7097A8;
 }
 
-
-.nav-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  font-weight: 600;
-}
-
-.nav-links > h4 {
-  margin: 1em;
-}
-
 .duration-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 12em;
-  margin-bottom: 5em;
+  margin-bottom: 12em;
+  font-size: 24px;
 }
 
-.main-container {
+.index-duration-container {
+  margin-top: 5em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
-  width: 100%;
-  height: 100%;
+  font-size: 24px;
+}
+
+.index-duration-selector {
+  margin: 2em;
+}
+
+.index-duration-selector > a {
+  background-color: #4A707A;
+  color: white;
+  margin: 1em;
+  padding: 1em 2.5em;
+  border-radius: 5px;
+}
+
+.index-duration-selector > a:hover {
+  background-color: #94B0B7;
+  transition: 0.4s ease-in-out;
+}
+
+.main-container {
+  display: grid;
+  /* width: 100%;
+  height: 100%; */
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
 }
 
 .workout-container {
   margin: 1em;
-  padding-top: 5em;
+  padding: 3em 1em;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
 }
 
 .workout-title {
   font-weight: bold;
   text-align: center;
+}
+
+.workout-duration {
+  margin-bottom: 2.5em;
+}
+
+.show-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 12em 0 5em 0;
+}
+
+.show-video > iframe {
+  width: 680px;
+  height: 400px;
+}
+
+.show-buttons {
+  display: flex;
+  margin: 0 4em;
+}
+
+.show-buttons > button, .show-buttons > form > input {
+  font-size: 20px;
+  margin: 2em .5em 3em 0;
+  padding: .5em 1em;
 }

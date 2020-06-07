@@ -4,16 +4,13 @@
     <%- include('./partials/head.ejs') %>
   </head>
   <body>
-    <%- include('./partials/header.ejs') %>
+    <header>
+      <nav class="main-nav">
+        <%- include('./partials/header.ejs') %>
+      </nav>
+    </header>
     <div class="index-duration-container">
-      <div class="index-duration-title">
         <h3>Workouts</h3>
-      </div>
-      <div class="index-duration-selector">
-        <!-- <a href="#">10 minute</a>
-        <a href="#">20 minute</a>
-        <a href="#">30 minute</a> -->
-      </div>
     </div>
       <div class="main-container">
         <% for(let i = 0; i < workouts.length; i++) { %>

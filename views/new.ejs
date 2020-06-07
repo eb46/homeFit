@@ -6,9 +6,9 @@
   </head>
   <body>
     <header>
-      <div class="header-container">
+      <nav class="main-nav">
         <%- include('./partials/header.ejs') %>
-      </div>
+      </nav>
     </header>
     <form class="new-form" action="/homefit/index" method="POST">
       <fieldset>
@@ -18,7 +18,12 @@
         <input id="title" type="text" name="title"/>
         <!-- --- workout duration --- -->
         <label for="duration">Workout Duration</label>
-        <input id="duration" type="text" name="duration"/>
+        <!-- <input id="duration" type="text" name="duration"/> -->
+        <select id="duration" name="duration">
+          <option value="10 minutes">10 minutes</option>
+          <option value="20 minutes">20 minutes</option>
+          <option value="30 minutes">30 minutes</option>
+        </select>
         <!-- --- equipment needed --- -->
         <label for="equipmentNeeded">Equipment Needed?</label>
         <input id="equipmentNeeded" type="checkbox" name="equipmentNeeded"/>
