@@ -37,7 +37,7 @@ app.use(methodOverride('_method'))
 ////////////////////////////
 ////// Welcome Route ///////
 ////////////////////////////
-app.get('/homefit', (req, res) => {
+app.get('/', (req, res) => {
   res.render('welcome.ejs')
 })
 
