@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Edit Page</h1>
-
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body>
+  <header>
+    <nav class="main-nav">
+      <%- include('./partials/header.ejs') %>
+    </nav>
+  </header>
     <form class="new-form" action="/homefit/<%= workout.id %>?_method=PUT" method="POST">
       <fieldset>
         <legend>Edit Workout</legend>

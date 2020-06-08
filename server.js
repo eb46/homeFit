@@ -33,12 +33,25 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
 
+
+////////////////////////////
+////// Welcome Route ///////
+////////////////////////////
+app.get('/homefit', (req, res) => {
+  res.render('welcome.ejs')
+})
+
 // Controllers
 const workoutController = require('./controllers/workout_controller.js')
 app.use('/homefit', workoutController)
 
 const userController = require('./controllers/user_controller.js')
 app.use('/users', userController)
+
+// const sessionController = require('./controllers/sessions_controller.js')
+// app.use('/sessions', sessionsController)
+
+
 
 
 // Listener

@@ -115,7 +115,7 @@ a:hover {
   color: white;
 }
 
-.index-duration-selector > a:hover {
+.index-duration-selector > div:hover {
   background-color: #94B0B7;
   transition: 0.4s ease-in-out;
 }
@@ -130,7 +130,7 @@ a:hover {
 
 .workout-container {
   margin: 1em;
-  padding: 3em 1em;
+  padding: 3em 0;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -140,8 +140,16 @@ a:hover {
 }
 
 .workout-title {
+  background-color: gray;
   font-weight: bold;
   text-align: center;
+  margin-right: 0;
+  margin-left: 0;
+  width: 100%;
+}
+
+.workout-title > a {
+  color: white;
 }
 
 .workout-duration {
@@ -170,4 +178,21 @@ a:hover {
   font-size: 20px;
   margin: 2em .5em 3em 0;
   padding: .5em 1em;
+}
+
+.new-form {
+  margin-top: 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+fieldset {
+  width: 18em;
+}
+
+.new-form > fieldset > input {
+  margin: 1em 0;
 }

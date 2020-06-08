@@ -4,13 +4,6 @@ const Workout = require('../models/workouts.js')
 
 module.exports = workout
 
-////////////////////////////
-////// Welcome Route ///////
-////////////////////////////
-workout.get('/', (req, res) => {
-  res.render('welcome.ejs')
-})
-
 //////////////////////////
 ////// Index Route ///////
 //////////////////////////
@@ -21,7 +14,7 @@ workout.get('/index', (req, res) => {
         workouts: allWorkouts
       }
     )
-  })
+  }).sort({title:1})
 })
 
 workout.get('/10min', (req, res) => {
@@ -31,7 +24,7 @@ workout.get('/10min', (req, res) => {
         workouts: workout10min
       }
     )
-  })
+  }).sort({title:1})
 })
 
 workout.get('/20min', (req, res) => {
@@ -41,7 +34,7 @@ workout.get('/20min', (req, res) => {
         workouts: workout20min
       }
     )
-  })
+  }).sort({title:1})
 })
 
 workout.get('/30min', (req, res) => {
@@ -51,7 +44,7 @@ workout.get('/30min', (req, res) => {
         workouts: workout30min
       }
     )
-  })
+  }).sort({title:1})
 })
 
 ///////////////////////////
@@ -76,19 +69,19 @@ workout.get('/new', (req, res) => {
 ////// Create Route ///////
 ///////////////////////////
 workout.post('/index', (req, res) => {
-  if(req.body.equipmentNeeded === 'on') {
+  if(req.body.equipmentNeeded === 'Yes') {
     req.body.equipmentNeeded = true
   } else {
     req.body.equipmentNeeded = false
   }
 
-  if(req.body.warmup === 'on'){
+  if(req.body.warmup === 'Yes'){
     req.body.warmpup = true
   } else {
     req.body.warmpup = false
   }
 
-  if(req.body.cooldown === 'on'){
+  if(req.body.cooldown === 'Yes'){
     req.body.cooldown = true
   } else {
     req.body.cooldown = false
@@ -116,19 +109,19 @@ workout.get('/:id/edit', (req, res) => {
 /////// Update Route ////////
 /////////////////////////////
 workout.put('/:id', (req, res) => {
-  if(req.body.equipmentNeeded === 'on') {
+  if(req.body.equipmentNeeded === 'Yes') {
     req.body.equipmentNeeded = true
   } else {
     req.body.equipmentNeeded = false
   }
 
-  if(req.body.warmup === 'on'){
+  if(req.body.warmup === 'Yes'){
     req.body.warmpup = true
   } else {
     req.body.warmpup = false
   }
 
-  if(req.body.cooldown === 'on'){
+  if(req.body.cooldown === 'Yes'){
     req.body.cooldown = true
   } else {
     req.body.cooldown = false

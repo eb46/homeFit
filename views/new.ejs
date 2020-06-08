@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
   <body>
     <header>
       <nav class="main-nav">
@@ -15,7 +14,7 @@
         <legend>Enter New Workout</legend>
         <!-- --- workout title --- -->
         <label for="title">Workout Title</label>
-        <input id="title" type="text" name="title"/>
+        <input id="title" type="text" name="title"/><br>
         <!-- --- workout duration --- -->
         <label for="duration">Workout Duration</label>
         <!-- <input id="duration" type="text" name="duration"/> -->
@@ -23,22 +22,22 @@
           <option value="10 minutes">10 minutes</option>
           <option value="20 minutes">20 minutes</option>
           <option value="30 minutes">30 minutes</option>
-        </select>
+        </select><br>
         <!-- --- equipment needed --- -->
         <label for="equipmentNeeded">Equipment Needed?</label>
-        <input id="equipmentNeeded" type="checkbox" name="equipmentNeeded"/>
+        <input id="equipmentNeeded" type="checkbox" name="equipmentNeeded"/><br>
         <!-- --- warmup exercise --- -->
         <label for="warmpup">Is there a warmup exercise?</label>
-        <input id="warmup" type="checkbox" name="warmpup"/>
+        <input id="warmup" type="checkbox" name="warmpup"/><br>
         <!-- --- cooldown exercise --- -->
         <label for="cooldown">Is there a cooldown exercise?</label>
-        <input id="cooldown" type="checkbox" name="cooldown"/>
+        <input id="cooldown" type="checkbox" name="cooldown"/><br>
         <!-- --- workout description --- -->
         <label for="description">Workout Description</label>
         <textarea id="description" name="description"></textarea>
         <!-- --- workout video --- -->
         <label for="video">Embedded file link</label>
-        <input id="video" type="text" name="video"/>
+        <input id="video" type="text" name="video"/><br>
       </fieldset>
       <input type="submit" value="Enter Workout">
     </form>
