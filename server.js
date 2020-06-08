@@ -13,6 +13,17 @@ const workoutSeed = require('./models/seed.js')
 // Port
 const PORT = process.env.PORT || 3333
 
+// Middleware
+// use the public folder
+app.use(express.static('public'))
+app.use(express.urlencoded({extended:true}))
+app.use(methodOverride('_method'))
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+
 // Database
 const MONGODB_URI = process.env.MONGODB_URI
 
@@ -26,18 +37,6 @@ mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
-
-
-// Middleware
-// use the public folder
-app.use(express.static('public'))
-app.use(express.urlencoded({extended:false}))
-app.use(methodOverride('_method'))
-app.use(session({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
-}))
 
 
 ////////////////////////////
