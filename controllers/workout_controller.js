@@ -11,7 +11,8 @@ workout.get('/index', (req, res) => {
   Workout.find({}, (error, allWorkouts) => {
     res.render('index.ejs',
       {
-        workouts: allWorkouts
+        workouts: allWorkouts,
+        currentUser: req.session.currentUser
       }
     )
   }).sort({title:1})
@@ -21,7 +22,8 @@ workout.get('/10min', (req, res) => {
   Workout.find({duration:'10 minutes'}, (error, workout10min) => {
     res.render('10min.ejs',
       {
-        workouts: workout10min
+        workouts: workout10min,
+        currentUser: req.session.currentUser
       }
     )
   }).sort({title:1})
@@ -31,7 +33,8 @@ workout.get('/20min', (req, res) => {
   Workout.find({duration:'20 minutes'}, (error, workout20min) => {
     res.render('20min.ejs',
       {
-        workouts: workout20min
+        workouts: workout20min,
+        currentUser: req.session.currentUser
       }
     )
   }).sort({title:1})
@@ -41,7 +44,8 @@ workout.get('/30min', (req, res) => {
   Workout.find({duration:'30 minutes'}, (error, workout30min) => {
     res.render('30min.ejs',
       {
-        workouts: workout30min
+        workouts: workout30min,
+        currentUser: req.session.currentUser
       }
     )
   }).sort({title:1})
@@ -55,14 +59,18 @@ workout.get('/seed', (req, res) => {
     if (error) console.log(error.message)
     console.log("added provided workout data")
   })
-  res.redirect('/homefit')
+  res.redirect('/homefit', {
+    currentUser: req.session.currentUser
+  })
 })
 
 ////////////////////////
 ////// New Route ///////
 ////////////////////////
 workout.get('/new', (req, res) => {
-  res.render('new.ejs')
+  res.render('new.ejs', {
+    currentUser: req.session.currentUser
+  })
 })
 
 ///////////////////////////
@@ -99,7 +107,8 @@ workout.get('/:id/edit', (req, res) => {
   Workout.findById(req.params.id, (error, foundWorkout) => {
     res.render('edit.ejs',
       {
-        workout: foundWorkout
+        workout: foundWorkout,
+        currentUser: req.session.currentUser
       }
     )
   })
@@ -149,7 +158,8 @@ workout.get('/:id', (req, res) => {
   Workout.findById(req.params.id, (error, foundWorkout) => {
     res.render('show.ejs',
       {
-        workout: foundWorkout
+        workout: foundWorkout,
+        currentUser: req.session.currentUser
       }
     )
   })
