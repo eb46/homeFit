@@ -31,7 +31,36 @@ header {
   top: 0;
   width: 100%;
   background-color: #94B0B7;
-  opacity: .9;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 10em;
+}
+
+.welcome-container > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-container > form > label {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.welcome-container > form > input {
+  font-size: 24px;
+  width: 15em;
+}
+
+.welcome-title {
+  margin-bottom: 2em;
 }
 
 .main-container {

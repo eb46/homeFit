@@ -22,7 +22,7 @@ sessions.post('/', (req, res) => {
     } else {
       if(bcrypt.compareSync(req.body.password, foundUser.password)) {
         req.session.currentUser = foundUser
-        res.redirect('/homefit')
+        res.redirect('/homefit/index')
       } else {
         res.send('<a href="/homefit">Sorry, password does not match</a>')
       }
@@ -32,7 +32,7 @@ sessions.post('/', (req, res) => {
 
 sessions.delete('/', (req, res) => {
   req.session.destroy(() => {
-    res.redirect('/homefit')
+    res.redirect('/')
   })
 })
 

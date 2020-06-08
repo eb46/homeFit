@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <%- include('./partials/head.ejs') %>
   </head>
   <body>
-    <nav>
-      <h1>homefit</h1>
-    </nav>
-    <div>
-      <a href="#">Login</a>
-      <a href="#">Sign Up</a>
-    </div>
+    <header>
+      <nav class="main-nav">
+        <div class="logo">
+          <h1><a href="/homefit/index">homefit</a></h1>
+        </div>
+        <div class="nav-links">
+          <h4><a href="/sessions/new">Log In</a></h4>
+          <h4><a href="/users/new">Sign Up</a></h4>
+        </div>
+      </nav>
+    </header>
   </body>
 </html>

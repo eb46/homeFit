@@ -2,6 +2,7 @@
 const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
+const session = require('express-session')
 const app = express()
 const db = mongoose.connection
 require('dotenv').config()
@@ -32,6 +33,11 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'))
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
 
 
 ////////////////////////////
@@ -48,8 +54,8 @@ app.use('/homefit', workoutController)
 const userController = require('./controllers/user_controller.js')
 app.use('/users', userController)
 
-// const sessionController = require('./controllers/sessions_controller.js')
-// app.use('/sessions', sessionsController)
+const sessionController = require('./controllers/sessions_controller.js')
+app.use('/sessions', sessionController)
 
 
 
