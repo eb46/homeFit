@@ -11,16 +11,10 @@ users.get('/new', (req, res) => {
 })
 
 users.post('/', (req, res) => {
-  User.findOne({username: req.body.username}, (error, foundUsername) => {
-    if (!foundUsername) {
-      req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
-      User.create(req.body, (error, createdUser) => {
-        console.log('user is created', createdUser)
-        res.redirect('/')
-      })
-    } else {
-      res.send('Username already exists! Please choose a differnt username <a href="/">Back to home</a>')
-    }
+  req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
+  User.create(req.body, (error, createdUser) => {
+    console.log('user is created', createdUser)
+    res.redirect('/')
   })
 })
 
