@@ -7,7 +7,8 @@ const User = require('../models/users.js')
 sessions.get('/new', (req, res) => {
   res.render('sessions/new.ejs',
     {
-      currentUser: req.session.currentUser
+      currentUser: req.session.currentUser,
+      user: req.body
     }
   )
 })
@@ -18,13 +19,13 @@ sessions.post('/', (req, res) => {
       console.log(error);
       res.send('Oh no! The db had an error')
     } else if (!foundUser) {
-      res.send('<a href="/homefit">Sorry, no user was found</a>')
+      res.send('<a href="/">Sorry, no user was found</a>')
     } else {
       if(bcrypt.compareSync(req.body.password, foundUser.password)) {
         req.session.currentUser = foundUser
         res.redirect('/homefit/index')
       } else {
-        res.send('<a href="/homefit">Sorry, password does not match</a>')
+        res.send('<a href="/">Sorry, password does not match</a>')
       }
     }
   })
@@ -32,7 +33,7 @@ sessions.post('/', (req, res) => {
 
 sessions.delete('/', (req, res) => {
   req.session.destroy(() => {
-    res.redirect('/')
+    res.redirect('/sessions/new')
   })
 })
 

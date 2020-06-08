@@ -1,14 +1,22 @@
 <div class="logo">
-  <h1><a href="/homefit/index">homefit</a></h1>
-</div>
-<div class="nav-links">
-  <h4><a href="/homefit/new">Add Workout</a></h4>
+  <h1><a href= <% if (currentUser) { %>
+    "/homefit/index"
+  <% } else { %>
+    "/"
+  <% } %>>homeFit</a></h1>
 </div>
 <% if (currentUser) { %>
-  <div>Have a great workout, <%= currentUser.username %>!</div>
-  <div class="nav-links">
+  <% if (currentUser.username === 'Admin') { %>
+      <div class="nav-links">
+        <h4 class=nav-push><a href="/homefit/new">Add Workout</a></h4>
+      </div>
+  <% } %>
+<% } %>
+<% if (currentUser) { %>
+  <div class="nav-push"><h4>Have a great workout, <%= currentUser.username %>!</h4></div>
+  <div class="logout-button">
     <form action="/sessions?_method=DELETE" method="POST">
-      <input type="submit" value="Logout">
+      <input type="submit" value="logout">
     </form>
   </div>
 <% } else { %>

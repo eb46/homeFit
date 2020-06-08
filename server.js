@@ -43,7 +43,11 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 ////// Welcome Route ///////
 ////////////////////////////
 app.get('/', (req, res) => {
-  res.render('welcome.ejs')
+  res.render('welcome.ejs',
+    {
+      currentUser: req.session.currentUser,
+    }
+  )
 })
 
 // Controllers

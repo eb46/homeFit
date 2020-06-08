@@ -4,16 +4,9 @@
   <%- include('../partials/head.ejs') %>
 </head>
   <body>
-    <header>
-      <nav class="main-nav">
-        <div class="logo">
-          <h1><a href="/homefit/index">homefit</a></h1>
-        </div>
-        <div class="nav-links">
-          <h4><a href="/sessions/new">Log In</a></h4>
-        </div>
-      </nav>
-    </header>
+    <nav class="main-nav">
+      <%- include('../partials/header.ejs') %>
+    </nav>
     <div class="welcome-container">
       <h1 class="welcome-title">Sign Up</h1>
       <form class="" action="/users" method="POST">

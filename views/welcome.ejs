@@ -4,16 +4,14 @@
     <%- include('./partials/head.ejs') %>
   </head>
   <body>
-    <header>
-      <nav class="main-nav">
-        <div class="logo">
-          <h1><a href="/homefit/index">homefit</a></h1>
-        </div>
-        <div class="nav-links">
-          <h4><a href="/sessions/new">Log In</a></h4>
-          <h4><a href="/users/new">Sign Up</a></h4>
-        </div>
-      </nav>
-    </header>
+    <nav class="main-nav">
+      <%- include('./partials/header.ejs') %>
+    </nav>
+    <div class="welcome-message">
+      <h1>Hello Friends!</h1>
+      <p>Welcome to the homeFit app!</p>
+      <p>Since we're all stuck at home in quarantine, I figured it would be a great time to compile some workouts to keep us staying fit and active all from the convenience of our own homes.</p>
+      <p>Stay safe and have fun!</p>
+    </div>
   </body>
 </html>
