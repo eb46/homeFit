@@ -8,36 +8,45 @@
       <%- include('./partials/header.ejs') %>
     </nav>
     <form class="new-form" action="/homefit/index" method="POST">
-      <fieldset>
+      <div class="enter-workout">
         <legend>Enter New Workout</legend>
         <!-- --- workout title --- -->
         <label for="title">Workout Title</label>
-        <input id="title" type="text" name="title"/><br>
+        <input class="title" type="text" name="title"/><br>
         <!-- --- workout duration --- -->
         <label for="duration">Workout Duration</label>
         <!-- <input id="duration" type="text" name="duration"/> -->
-        <select id="duration" name="duration">
+        <select class="duration" name="duration">
           <option value="10 minutes">10 minutes</option>
           <option value="20 minutes">20 minutes</option>
           <option value="30 minutes">30 minutes</option>
         </select><br>
         <!-- --- equipment needed --- -->
         <label for="equipmentNeeded">Equipment Needed?</label>
-        <input id="equipmentNeeded" type="checkbox" name="equipmentNeeded"/><br>
+        <select class="equipmentNeeded" name="equipmentNeeded">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select><br>
         <!-- --- warmup exercise --- -->
         <label for="warmpup">Is there a warmup exercise?</label>
-        <input id="warmup" type="checkbox" name="warmpup"/><br>
+        <select class="warmup" name="warmpup">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select><br>
         <!-- --- cooldown exercise --- -->
         <label for="cooldown">Is there a cooldown exercise?</label>
-        <input id="cooldown" type="checkbox" name="cooldown"/><br>
+        <select class="cooldown" name="cooldown">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select><br>
         <!-- --- workout description --- -->
         <label for="description">Workout Description</label>
-        <textarea id="description" name="description"></textarea><br>
+        <textarea class="description" name="description" maxlength="80"></textarea><br>
         <!-- --- workout video --- -->
         <label for="video">Embedded file link</label>
-        <input id="video" type="text" name="video"/><br>
-      </fieldset>
+        <input class="video" type="text" name="video"/><br>
       <input type="submit" value="Enter Workout">
+      </div>
     </form>
   </body>
 </html>

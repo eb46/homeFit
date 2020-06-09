@@ -8,30 +8,39 @@
     <%- include('./partials/header.ejs') %>
   </nav>
     <form class="new-form" action="/homefit/<%= workout.id %>?_method=PUT" method="POST">
-      <fieldset>
+      <div class="enter-workout">
         <legend>Edit Workout</legend>
         <!-- --- workout title --- -->
         <label for="title">Workout Title</label>
-        <input id="title" type="text" name="title" value="<%= workout.title %>"/>
+        <input class="title" type="text" name="title" value="<%= workout.title %>"/>
         <!-- --- workout duration --- -->
         <label for="duration">Workout Duration</label>
-        <input id="duration" type="text" name="duration" value="<%= workout.duration %>"/>
+        <input class="duration" type="text" name="duration" value="<%= workout.duration %>"/>
         <!-- --- equipment needed --- -->
         <label for="equipmentNeeded">Equipment Needed?</label>
-        <input id="equipmentNeeded" type="checkbox" name="equipmentNeeded"/>
+        <select class="equipmentNeeded" name="equipmentNeeded">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select><br>
         <!-- --- warmup exercise --- -->
         <label for="warmpup">Is there a warmup exercise?</label>
-        <input id="warmup" type="checkbox" name="warmpup"/>
+        <select class="warmup" name="warmup" value="<%= workout.warmup %>">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select><br>
         <!-- --- cooldown exercise --- -->
         <label for="cooldown">Is there a cooldown exercise?</label>
-        <input id="cooldown" type="checkbox" name="cooldown"/>
+        <select class="cooldown" name="cooldown">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select><br>
         <!-- --- workout description --- -->
         <label for="description">Workout Description</label>
-        <textarea id="description" name="description" value="<%= workout.description %>"></textarea>
+        <textarea class="description" name="description" maxlength="80" value="description"></textarea>
         <!-- --- workout video --- -->
         <label for="video">Embedded file link</label>
-        <input id="video" type="text" name="video" value="<%= workout.video %>"/>
-      </fieldset>
+        <input class="video" type="text" name="video" value="<%= workout.video %>"/>
+      </div>
       <input type="submit" value="Edit Workout">
     </form>
   </body>

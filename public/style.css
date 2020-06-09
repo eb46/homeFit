@@ -250,11 +250,34 @@ a:hover {
   align-content: center;
 }
 
-fieldset {
-  width: 25em;
-  height: 30em;
-}
-
 .new-form > fieldset > input {
   margin: 1em 0;
+  font-size: 16px;
+}
+
+.enter-workout {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5em;
+}
+
+legend {
+  margin: 1.5em 0;
+  font-size: 32px;
+}
+
+label {
+  font-size: 20px;
+}
+
+.title {
+  font-size: 16px;
+  width: 15em;
+  margin: 0;
+}
+
+.description {
+  max-width: 18em;
+  max-height: 15em;
+  margin: 0;
 }

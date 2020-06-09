@@ -20,7 +20,7 @@
               <h2><%= workouts[i].duration %></h2>
             </div>
             <div class="index-video">
-              <iframe src="<%= workouts[i].video %>" frameborder="0" allow="encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe src="<%= workouts[i].video.replace(/watch\?v\=/, 'embed/') %>" frameborder="0" allow="encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
         <% } %>

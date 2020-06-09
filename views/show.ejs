@@ -21,11 +21,21 @@
           <h4>Equipment is not needed for this workout</h4>
         <% } %>
       </div>
+      <div class="workout-warmup">
+        <% if(workout.warmup === true) { %>
+          <h4>There is a warmup exercise</h4>
+        <% } %>
+      </div>
+      <div class="workout-cooldown">
+        <% if(workout.cooldown === true) { %>
+          <h4>There is a cooldown exercise</h4>
+        <% } %>
+      </div>
       <div class="workout-description">
         <h4><%= workout.description %></h4>
       </div>
       <div class="show-video">
-        <iframe src="<%= workout.video %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="<%= workout.video.replace(/watch\?v\=/, 'embed/') %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <% if (currentUser) { %>
         <% if (currentUser.username === 'Admin') { %>

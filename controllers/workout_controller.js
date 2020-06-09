@@ -104,6 +104,23 @@ workout.post('/index', (req, res) => {
 /////// Edit Route ////////
 ///////////////////////////
 workout.get('/:id/edit', (req, res) => {
+  if(req.body.equipmentNeeded === 'Yes') {
+    req.body.equipmentNeeded = true
+  } else {
+    req.body.equipmentNeeded = false
+  }
+
+  if(req.body.warmup === 'Yes'){
+    req.body.warmpup = true
+  } else {
+    req.body.warmpup = false
+  }
+
+  if(req.body.cooldown === 'Yes'){
+    req.body.cooldown = true
+  } else {
+    req.body.cooldown = false
+  }
   Workout.findById(req.params.id, (error, foundWorkout) => {
     res.render('edit.ejs',
       {
