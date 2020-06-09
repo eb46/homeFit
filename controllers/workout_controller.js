@@ -12,7 +12,7 @@ workout.get('/index', (req, res) => {
     res.render('index.ejs',
       {
         workouts: allWorkouts,
-        currentUser: req.session.currentUser
+        currentUser: req.session.currentUser,
       }
     )
   }).sort({title:1})

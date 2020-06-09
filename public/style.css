@@ -14,18 +14,19 @@ iframe {
 }
 
 body {
-  background-color: #DDDDDA;
+  background-color: #ECE6CD;
   margin: 0;
 }
 
 .main-nav {
+  color: white;
   display: flex;
   align-items: center;
   align-content: center;
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #94B0B7;
+  background-color: #138086;
 }
 
 .nav-push{
@@ -43,6 +44,7 @@ body {
 
 .logo {
   padding: 0 2em;
+  color: white;
 }
 
 .nav-links {
@@ -121,9 +123,18 @@ a {
   color: black;
 }
 
+.workout-title > h2 > a {
+  color: white;
+}
+
+.workout-title > h2 > a:hover {
+  color: black;
+}
+
 a:hover {
   cursor: pointer;
-  color: #7097A8;
+  color: black;
+  transition: 0.2s ease-in-out;
 }
 
 .duration-container {
@@ -131,8 +142,8 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 12em;
-  margin-bottom: 12em;
+  margin-top: 10em;
+  margin-bottom: 14em;
   font-size: 24px;
 }
 
@@ -152,7 +163,7 @@ a:hover {
 }
 
 .duration-link {
-  background-color: #4A707A;
+  background-color: #EE6A59;
   margin: 1em;
   padding: 1em 2.5em;
   border-radius: 5px;
@@ -162,8 +173,12 @@ a:hover {
   color: white;
 }
 
+.index-duration-title {
+  font-size: 46px;
+}
+
 .index-duration-selector > div:hover {
-  background-color: #94B0B7;
+  background-color: #3A3F58;
   transition: 0.4s ease-in-out;
 }
 
@@ -177,8 +192,9 @@ a:hover {
 
 .workout-container {
   margin: 1em;
-  padding: 3em 0;
-  border-radius: 5px;
+  padding: 0 0 3em 0;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -187,16 +203,14 @@ a:hover {
 }
 
 .workout-title {
-  background-color: gray;
+  background-color: #F9AC67;
   font-weight: bold;
   text-align: center;
   margin-right: 0;
   margin-left: 0;
+  padding: 1em 0;
   width: 100%;
-}
-
-.workout-title > a {
-  color: white;
+  border-top-left-radius: 5px;
 }
 
 .workout-duration {
@@ -237,7 +251,8 @@ a:hover {
 }
 
 fieldset {
-  width: 18em;
+  width: 25em;
+  height: 30em;
 }
 
 .new-form > fieldset > input {
