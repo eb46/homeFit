@@ -281,3 +281,10 @@ label {
   max-height: 15em;
   margin: 0;
 }
+
+footer {
+  background-color: #138086;
+  width: 100%;
+  padding: .4em;
+  text-align: center;
+}
