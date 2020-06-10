@@ -4,9 +4,9 @@ const workoutSchema = new mongoose.Schema(
   {
     title: {type: String, required: true},
     duration: String,
-    equipmentNeeded: Boolean,
-    warmup: Boolean,
-    cooldown: Boolean,
+    equipmentNeeded: String,
+    warmup: String,
+    cooldown: String,
     description: String,
     video: String
   },

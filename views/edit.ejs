@@ -7,8 +7,8 @@
   <nav class="main-nav">
     <%- include('./partials/header.ejs') %>
   </nav>
+    <div class="enter-workout">
     <form class="new-form" action="/homefit/<%= workout.id %>?_method=PUT" method="POST">
-      <div class="enter-workout">
         <legend>Edit Workout</legend>
         <!-- --- workout title --- -->
         <label for="title">Workout Title</label>
@@ -24,7 +24,7 @@
         </select><br>
         <!-- --- warmup exercise --- -->
         <label for="warmpup">Is there a warmup exercise?</label>
-        <select class="warmup" name="warmup" value="<%= workout.warmup %>">
+        <select class="warmup" name="warmup">
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select><br>
@@ -36,13 +36,13 @@
         </select><br>
         <!-- --- workout description --- -->
         <label for="description">Workout Description</label>
-        <textarea class="description" name="description" maxlength="80" value="description"></textarea>
+        <textarea class="description" name="description" maxlength="80"></textarea>
         <!-- --- workout video --- -->
         <label for="video">YouTube Link</label>
-        <input class="video" type="text" name="video" value="<%= workout.video %>"/>
-      </div>
+        <input class="video" type="text" name="video"/>
       <input type="submit" value="Edit Workout"><br>
     </form>
+    </div>
     <%- include('partials/footer.ejs') %>
   </body>
 </html>
