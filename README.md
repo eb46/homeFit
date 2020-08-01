@@ -11,6 +11,10 @@ Hello all! I built this application during the 2020 quarantine to stay fit and a
 - CSS
 - Node.js
 - Javascript
+- Express JS
+- MongoDB
+- Mongoose
+- Heroku deployment
 
 ## Approach
 I wanted to build a simple/minimal layout and design. I also wanted to limit the user to only being able to view the content and have a separate Admin user that would be able to add, edit, and delete content.
